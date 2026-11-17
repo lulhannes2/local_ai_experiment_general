@@ -1,0 +1,54 @@
+
+== Identity ==
+  hostname : dgx43019
+  user     : dgx43019 (uid 1000)
+  date     : 2026-11-17T13:56:09+01:00
+
+== Software versions (must be identical on all 4 nodes) ==
+  OS          : Ubuntu 24.04.5 LTS
+  kernel      : 7.0.0-1025-nvidia
+  dgx-release : 7.6.0
+  OTA meta    : 26.09.3
+  driver      : 580.178.04
+  CUDA        : 13.0
+  docker      : Docker version 29.6.2, build dfc4efb
+  nv-ctk      : 1.20.2-1
+  ofed/rdma   : 50.0-2ubuntu0.2
+
+== GPU ==
+  [ OK ] GPU 0: NVIDIA GB10 (UUID: GPU-cacdb3f7-9b3e-19f2-6684-5d6fd19cf5f7)
+
+== Fabric NICs (ConnectX-7, port 1) ==
+  enp1s0f1np1: state=up speed=200000Mb/s mtu=1500 ipv4=10.100.192.1/24
+  [ OK ] enp1s0f1np1 link up
+  [WARN] enp1s0f1np1 MTU 1500 (target 9000)
+  enP2p1s0f1np1: state=up speed=200000Mb/s mtu=1500 ipv4=10.100.193.1/24
+  [ OK ] enP2p1s0f1np1 link up
+  [WARN] enP2p1s0f1np1 MTU 1500 (target 9000)
+  roceP2p1s0f0 port 1 ==> enP2p1s0f0np0 (Down)
+  roceP2p1s0f1 port 1 ==> enP2p1s0f1np1 (Up)
+  rocep1s0f0 port 1 ==> enp1s0f0np0 (Down)
+  rocep1s0f1 port 1 ==> enp1s0f1np1 (Up)
+  netplan: 00-installer-config.yaml
+  netplan: 99-nvidia-sync-cluster.yaml
+  [WARN] old NVIDIA Sync direct-link config present (remove on switch day, manual §5.3)
+
+== Container runtime ==
+  [ OK ] user in docker group
+  [ OK ] nvidia runtime registered in docker
+
+== Time sync ==
+  [ OK ] clock NTP-synchronized
+
+== Storage / memory ==
+  root fs: size=3.7T used=152G free=3.4T
+  memory : total=121G used=100G available=20G
+
+== Tools needed for validation ==
+  [WARN] mpirun not found (see manual §4.6)
+  [ OK ] ib_write_bw found
+  [ OK ] git found
+  [ OK ] make found
+  [ OK ] nvcc found
+
+Summary: 10 OK, 4 WARN
